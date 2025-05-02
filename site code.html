@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kavan's Intro Slide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #F5F5F5;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+    
+    @keyframes trail {
+      0% { box-shadow: 0 0 0 0 rgba(252, 211, 77, 0.5); }
+      50% { box-shadow: 0 0 10px 5px rgba(252, 211, 77, 0.3); }
+      100% { box-shadow: 0 0 0 0 rgba(252, 211, 77, 0); }
+    }
+    .content-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #F5F5F5;
+    }
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .navbar-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .navbar-logo span {
+      color: #60A5FA;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .navbar-links a {
+      font-size: 1rem;
+      color: #0F172A;
+      text-decoration: none;
+    }
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .navbar-subscribers {
+      background: #60A5FA;
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      text-decoration: none;
+    }
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+      gap: 3rem;
+      background: #F5F5F5;
+      position: relative;
+    }
+    .hero-left {
+      position: relative;
+      flex: 0 0 300px;
+    }
+    .hero-photo {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 1;
+      position: relative;
+    }
+    .hero-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      height: 340px;
+      background: #FCD34D;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .hero-right {
+      max-width: 600px;
+    }
+    .hero-right h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .hero-right h1::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 80%;
+      height: 8px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="%2360A5FA" stroke-width="2" fill="none"/></svg>') no-repeat;
+      background-size: contain;
+    }
+    .hero-right p {
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: #475569;
+      margin-bottom: 2rem;
+    }
+    .instagram-section {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      position: relative;
+    }
+    .instagram-section h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .instagram-section h3::before {
+      content: url('https://img.icons8.com/ios-filled/24/000000/star.png');
+      margin-right: 0.5rem;
+    }
+    .instagram-section p {
+      font-size: 1rem;
+      color: #64748B;
+      margin-bottom: 1rem;
+    }
+    .instagram-section a {
+      background: #60A5FA;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .interests-section {
+      padding: 4rem 2rem;
+      position: relative;
+    }
+    .interests-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+    }
+    .interests-title {
+      flex: 0 0 300px;
+      text-align: left;
+    }
+    .interests-title h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .interests-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 80%;
+      height: 8px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="%2360A5FA" stroke-width="2" fill="none"/></svg>') no-repeat;
+      background-size: contain;
+    }
+    .interest-card-horizontal {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      text-align: left;
+    }
+    .interest-card-horizontal h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .interest-card-horizontal h3::before {
+      content: url('https://img.icons8.com/ios-filled/24/000000/sparkling.png');
+      margin-right: 0.5rem;
+    }
+    .interest-card-horizontal p {
+      font-size: 1rem;
+      color: #64748B;
+    }
+    .photo-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .photo-card {
+      position: relative;
+      width: 200px;
+      height: 300px;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .photo-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+    .photo-card:hover::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px solid #FCD34D;
+      border-radius: 1rem;
+      z-index: -1;
+      animation: halo 1s ease-out infinite;
+    }
+    .photo-card:nth-child(odd) {
+      margin-top: 2rem;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes halo {
+      0% { box-shadow: 0 0 0 0 rgba(252, 211, 77, 0.5); }
+      50% { box-shadow: 0 0 10px 5px rgba(252, 211, 77, 0.3); }
+      100% { box-shadow: 0 0 0 0 rgba(252, 211, 77, 0); }
+    }
+    .timeline-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .timeline-section h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-top: 1rem;
+    }
+    .timeline-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 8px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="%2360A5FA" stroke-width="2" fill="none"/></svg>') no-repeat;
+      background-size: contain;
+    }
+    .timeline {
+      position: relative;
+      height: 250px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #60A5FA;
+      z-index: 0;
+    }
+    .timeline-cards-wrapper {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      animation: auto-scroll 40s linear infinite;
+    }
+    .timeline-cards {
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-card {
+      flex: 0 0 300px;
+      height: 200px;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+    .timeline-card:hover::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px solid #FCD34D;
+      border-radius: 1rem;
+      z-index: -1;
+      animation: halo 1s ease-out infinite;
+    }
+    .timeline-card img {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 0.5rem;
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .timeline-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .timeline-card p {
+      font-size: 0.875rem;
+      color: #64748B;
+      line-height: 1.2;
+    }
+    @keyframes auto-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    .shape {
+      position: absolute;
+      opacity: 0.2;
+      animation: float 6s infinite ease-in-out;
+    }
+    .shape-circle {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #FCD34D;
+      border-radius: 50%;
+    }
+    .shape-triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #60A5FA;
+      transform: rotate(45deg);
+    }
+    .shape-underline {
+      width: 100px;
+      height: 8px;
+      background: #60A5FA;
+      border-radius: 4px;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(20px); }
+      100% { transform: translateY(0); }
+    }
+    .building-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .building-section h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .building-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 8px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="%2360A5FA" stroke-width="2" fill="none"/></svg>') no-repeat;
+      background-size: contain;
+    }
+    .building-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .building-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      max-width: 300px;
+      text-align: left;
+      position: relative;
+    }
+    .building-card:nth-child(2) {
+      margin-top: 2rem;
+    }
+    .building-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 1rem;
+    }
+    .building-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .building-card h3::before {
+      content: url('https://img.icons8.com/ios-filled/24/000000/sparkling.png');
+      margin-right: 0.5rem;
+    }
+    .building-card p {
+      font-size: 1rem;
+      color: #64748B;
+      margin-bottom: 1rem;
+    }
+    .building-card a {
+      font-size: 1rem;
+      color: #0F172A;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .building-card a::after {
+      content: '→';
+      margin-left: 0.25rem;
+    }
+    .skills-section {
+      padding: 4rem 2rem;
+      background: #F5F5F5;
+      position: relative;
+    }
+    .skills-section h2 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .skills-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 80%;
+      height: 8px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="%2360A5FA" stroke-width="2" fill="none"/></svg>') no-repeat;
+      background-size: contain;
+    }
+    .skills-content {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .skills-text {
+      max-width: 600px;
+    }
+    .skills-text p {
+      font-size: 1rem;
+      color: #64748B;
+      margin-bottom: 1rem;
+    }
+    .skills-images {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      max-width: 400px;
+    }
+    .skills-image {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    .skills-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .skills-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .skills-buttons a {
+      background: #60A5FA;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .connect-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .connect-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .connect-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 8px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="%2360A5FA" stroke-width="2" fill="none"/></svg>') no-repeat;
+      background-size: contain;
+    }
+    .connect-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .connect-buttons a {
+      background: #60A5FA;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      position: relative;
+    }
+    .connect-buttons a:nth-child(1) { margin-top: 0; }
+    .connect-buttons a:nth-child(2) { margin-top: 1rem; }
+    .connect-buttons a:nth-child(3) { margin-top: 0; }
+    .connect-buttons a:nth-child(4) { margin-top: 1rem; }
+    .signature {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: #0F172A;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      filter: blur(30px);
+      animation: morph 5s infinite alternate;
+    }
+    .blob-1 { background: #4B0082; width: 200px; height: 200px; top: 10%; left: 10%; }
+    .blob-2 { background: #87CEEB; width: 250px; height: 250px; bottom: 10%; right: 10%; }
+    @keyframes morph {
+      0% { transform: scale(1) translate(0, 0); }
+      50% { transform: scale(1.2) translate(50px, 50px); }
+      100% { transform: scale(1) translate(0, 0); }
+    }
+    .shape {
+      position: absolute;
+      opacity: 0.2;
+      animation: float 6s infinite ease-in-out;
+    }
+    .shape-circle {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #FCD34D;
+      border-radius: 50%;
+    }
+    .shape-triangle {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #60A5FA;
+      transform: rotate(45deg);
+    }
+    .shape-underline {
+      width: 100px;
+      height: 8px;
+      background: #60A5FA;
+      border-radius: 4px;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(20px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const cursor = document.createElement('div');
+      cursor.className = 'custom-cursor';
+      cursor.style.left = e.pageX - 10 + 'px';
+      cursor.style.top = e.pageY - 10 + 'px';
+      document.body.appendChild(cursor);
+      setTimeout(() => cursor.remove(), 500);
+    });
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-logo"><span>✱</span> Kavan</div>
+      <div class="navbar-links">
+        <a href="#interests">Photography</a>
+        <a href="#interests">Writing</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#building">Reflections</a>
+        <a href="#skills">Skills</a>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <a href="https://www.instagram.com/kavanshah190/" class="navbar-subscribers">Follow on Instagram</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Slide 1) -->
+  <section class="hero content-grid">
+    <div class="hero-left">
+      <!-- Step 1: Replace this placeholder URL with your actual profile photo URL. Just copy-paste your image URL into the src="..." part. -->
+      <img src="profile.png" alt="Kavan" class="hero-photo">
+      <div class="hero-circle"></div>
+    </div>
+    <div class="hero-right">
+      <h1>Hey Friends! 👋</h1>
+      <p>I’m Kavan, a curious and creative 16-year-old exploring medicine, photography, and self. 🩺📸🌟</p>
+      <div class="instagram-section">
+        <h3>Follow Me on Instagram 📸</h3>
+        <p>Join me to see my latest photography and adventures.</p>
+        <a href="https://www.instagram.com/kavanshah190/">Follow</a>
+      </div>
+    </div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="shape shape-circle" style="top: 20%; left: 5%;"></div>
+    <div class="shape shape-triangle" style="bottom: 20%; right: 5%;"></div>
+  </section>
+
+  <!-- Interests Section (Slide 2) -->
+  <section class="interests-section content-grid" id="interests">
+    <div class="interests-header">
+      <div class="interests-title">
+        <h2>What I’m Into Lately 📝📸</h2>
+      </div>
+      <div class="interest-card-horizontal">
+        <h3>Storytelling Through Writing ✍️</h3>
+        <p>I’ve been exploring storytelling through writing, weaving narratives that capture emotions and ideas.</p>
+      </div>
+    </div>
+    <h3 style="text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Life Through My Lens 📸</h3>
+    <div class="photo-grid">
+      <!-- Step 2: Replace these placeholder URLs with your actual photography image URLs. Just copy-paste each image URL into the src="..." part for each photo. -->
+      <div class="photo-card">
+        <img src="IMG_1866_jpg.jpg" alt="Photo 1">
+      </div>
+      <div class="photo-card">
+        <img src="IMG_1910_jpg (1).jpg" alt="Photo 2">
+      </div>
+      <div class="photo-card">
+        <img src="DSC02796.jpg" alt="Photo 3">
+      </div>
+      <div class="photo-card">
+        <img src="DSC02608.jpg" alt="Photo 4">
+      </div>
+    </div>
+    <div class="shape shape-underline" style="bottom: 5%; left: 50%; transform: translateX(-50%);"></div>
+  </section>
+
+  <!-- Timeline Section (Slide 3) -->
+  <section class="timeline-section content-grid" id="timeline">
+    <h2>My Journey So Far 🚀</h2>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-cards-wrapper">
+        <div class="timeline-cards">
+          <div class="timeline-card">
+            <!-- Step 3: Replace this placeholder URL with your airplane icon URL. Just copy-paste your icon URL into the src="..." part. -->
+            <img src="air-force.png" alt="Air Cadets">
+            <h3>Sep 2021 - Jan 2025</h3>
+            <p>Joined Air Cadets, rose to Sergeant, and built leadership skills.</p>
+          </div>
+          <div class="timeline-card">
+            <!-- Step 4: Replace this placeholder URL with your police badge icon URL. Just copy-paste your icon URL into the src="..." part. -->
+            <img src="sheriff.png" alt="Police Academy">
+            <h3>2022</h3>
+            <p>Joined York Region Police Youth Academy in Grade 8 to learn about law enforcement.</p>
+          </div>
+          <div class="timeline-card">
+            <!-- Step 5: Replace this placeholder URL with your hospital icon URL. Just copy-paste your icon URL into the src="..." part. -->
+            <img src="help.png" alt="Volunteering">
+            <h3>Summer 2023</h3>
+            <p>Volunteered at Oak Valley Health MSH in Markham to support patient care.</p>
+          </div>
+          <div class="timeline-card">
+            <!-- Step 6: Replace this placeholder URL with your DNA helix icon URL. Just copy-paste your icon URL into the src="..." part. -->
+            <img src="lung-cancer.png" alt="Research">
+            <h3>Spring 2024</h3>
+            <p>Published a cancer research paper, diving into medical science.</p>
+          </div>
+          <div class="timeline-card">
+            <!-- Step 7: Replace this placeholder URL with your trash icon URL. Just copy-paste your icon URL into the src="..." part. -->
+            <img src="garbage.png" alt="Clean Up">
+            <h3>July 2024</h3>
+            <p>Co-hosted a community garbage clean-up event in Toronto for sustainability.</p>
+          </div>
+          <div class="timeline-card">
+            <!-- Step 8: Replace this placeholder URL with your heart pulse icon URL. Just copy-paste your icon URL into the src="..." part. -->
+            <img src="zeroa.png" alt="Shadowing">
+            <h3>July - Aug 2024</h3>
+            <p>Shadowed a cardiologist at Astitva Hospital, observing heart surgeries.</p>
+          </div>
+          <!-- Duplicate cards for seamless looping -->
+          <div class="timeline-card">
+            <img src="air-force.png" alt="Air Cadets">
+            <h3>Sep 2021 - Jan 2025</h3>
+            <p>Joined Air Cadets, rose to Sergeant, and built leadership skills.</p>
+          </div>
+          <div class="timeline-card">
+            <img src="sheriff.png" alt="Police Academy">
+            <h3>2022</h3>
+            <p>Joined York Region Police Youth Academy in Grade 8 to learn about law enforcement.</p>
+          </div>
+          <div class="timeline-card">
+            <img src="help.png" alt="Volunteering">
+            <h3>Summer 2023</h3>
+            <p>Volunteered at Oak Valley Health MSH in Markham to support patient care.</p>
+          </div>
+          <div class="timeline-card">
+            <img src="lung-cancer.png" alt="Research">
+            <h3>Spring 2024</h3>
+            <p>Published a cancer research paper, diving into medical science.</p>
+          </div>
+          <div class="timeline-card">
+            <img src="garbage.png" alt="Clean Up">
+            <h3>July 2024</h3>
+            <p>Co-hosted a community garbage clean-up event in Toronto for sustainability.</p>
+          </div>
+          <div class="timeline-card">
+            <img src="zeroa.png" alt="Shadowing">
+            <h3>July - Aug 2024</h3>
+            <p>Shadowed a cardiologist at Astitva Hospital, observing heart surgeries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shape shape-circle" style="top: 10%; left: 10%;"></div>
+    <div class="shape shape-triangle" style="bottom: 10%; right: 10%;"></div>
+    <div class="shape shape-underline" style="top: 5%; left: 20%;"></div>
+  </section>
+
+  <!-- Building Section (Slide 4) -->
+  <section class="building-section content-grid" id="building">
+    <h2>What I’m Building 🌟</h2>
+    <div class="building-cards">
+      <div class="building-card" style="flex: 1; display: flex; flex-direction: row-reverse;">
+        <!-- Step 9: Replace this placeholder URL with your camera icon URL. Just copy-paste your icon URL into the src="..." part. -->
+        <img src="camera.png" alt="Photography" style="margin-right: 1rem;">
+        <div>
+          <h3>My Photography</h3>
+          <p>See the world through my lens on Instagram.</p>
+          <a href="https://www.instagram.com/kavanshah190/">View Gallery</a>
+        </div>
+      </div>
+      <div class="building-card" style="flex: 1; display: flex; flex-direction: row-reverse;">
+        <!-- Step 10: Replace this placeholder URL with your typewriter icon URL. Just copy-paste your icon URL into the src="..." part. -->
+        <img src="typewriter.png" alt="Writing" style="margin-right: 1rem;">
+        <div>
+          <h3>My Writing 📝</h3>
+          <p>Check out my cancer research paper and other works.</p>
+          <a href="https://www.research-archive.org/index.php/rars/preprint/view/1121">Read More</a>
+        </div>
+      </div>
+      <div class="building-card" style="flex: 1; display: flex;">
+        <!-- Step 11: Replace this placeholder URL with your light bulb icon URL. Just copy-paste your icon URL into the src="..." part. -->
+        <img src="quotes.png" alt="Reflections" style="margin-left: 1rem;">
+        <div>
+          <h3>What I’m Thinking 💭</h3>
+          <p>I’ve been deeply internalizing how your work ethic reflects your gratitude. It’s hit me hard, and I’m working to embody it every day. 🌟</p>
+          <a href="#">Reflect With Me</a>
+        </div>
+      </div>
+    </div>
+    <div class="shape shape-circle" style="bottom: 5%; left: 10%;"></div>
+    <div class="shape shape-triangle" style="top: 5%; right: 10%;"></div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-section content-grid" id="skills">
+    <h2>My Skills 🎓</h2>
+    <div class="skills-content">
+      <div class="skills-text">
+        <!-- Step 12: Replace this placeholder text with your own skills description. Just edit the text between the <p> tags below. -->
+        <p>I’m skilled in research and writing, having published a paper on cancer research at just 16. I’m also adept at photography, capturing meaningful moments with my camera. My leadership skills grew through Air Cadets, where I became a Sergeant, and I’ve developed strong organizational skills through volunteering and community events.</p>
+        <p>My curiosity drives me to learn continuously—I’m always exploring new topics in medicine, storytelling, and personal growth. I’m also good at connecting with people, whether through my writing or in-person during events like the community clean-up I co-hosted.</p>
+        <p>If you’d like to know more about what I can do, feel free to reach out—I’d love to share my experiences and learn from yours!</p>
+        <div class="skills-buttons">
+          <a href="https://www.instagram.com/kavanshah190/">View My Work</a>
+          <a href="https://www.linkedin.com/in/kavanshah190/">Connect on LinkedIn</a>
+        </div>
+      </div>
+      <div class="skills-images">
+        <!-- Step 13: Replace these placeholder URLs with your actual skill-related image URLs. Just copy-paste each image URL into the src="..." part for each photo. -->
+        <div class="skills-image">
+          <img src="writer.png" alt="Skill 1">
+        </div>
+        <div class="skills-image">
+          <img src="camera.png" alt="Skill 2">
+        </div>
+        <div class="skills-image">
+          <img src="growth.png" alt="Skill 3">
+        </div>
+      </div>
+    </div>
+    <div class="shape shape-underline" style="bottom: 5%; left: 50%; transform: translateX(-50%);"></div>
+    <div class="shape shape-circle" style="top: 10%; right: 5%;"></div>
+  </section>
+
+  <!-- Connect Section (Slide 5) -->
+  <section class="connect-section content-grid">
+    <h2>If you’ve made it this far — thanks. I’m always down to talk. 🤗</h2>
+    <div class="connect-buttons">
+      <!-- Step 14: Replace this placeholder URL with your actual resume URL. Just copy-paste your resume URL into the href="..." part. -->
+      <a href="Kavan Shah Resume - Official Kavan Resume (1).pdf">Resume 📄</a>
+      <a href="https://www.instagram.com/kavanshah190/">Instagram 📷</a>
+      <a href="https://www.linkedin.com/in/kavanshah190/">LinkedIn 🔗</a>
+      <!-- Step 15: Replace this placeholder email with your actual email address. Just copy-paste your email into the href="mailto:..." part. -->
+      <a href="mailto:kavanshah190@gmail.com">Email Me 📬</a>
+    </div>
+    <div class="signature">Kavan</div>
+    <div class="shape shape-triangle" style="bottom: 5%; left: 5%;"></div>
+  </section>
+</body>
+</html>
